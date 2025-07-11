@@ -277,7 +277,7 @@ function App() {
     <motion.div 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="min-h-screen w-full bg-cover bg-center bg-no-repeat flex items-center justify-center p-4 transition-all duration-1000 relative"
+      className="min-h-screen w-full flex items-center justify-center bg-cover bg-center bg-no-repeat p-4 md:p-8 transition-all duration-1000 relative"
       style={{
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${getBackgroundImage(weather?.weather[0]?.main, weather?.main.temp)})`,
       }}
@@ -287,7 +287,7 @@ function App() {
       <motion.div 
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="w-full max-w-4xl bg-white/10 backdrop-blur-md rounded-3xl p-8 shadow-2xl text-white"
+        className="w-full max-w-2xl md:max-w-4xl bg-white/10 backdrop-blur-md rounded-3xl p-4 md:p-8 shadow-2xl text-white flex flex-col items-center"
       >
         <div className="flex flex-col md:flex-row gap-4 mb-8">
           <form onSubmit={handleSubmit} className="flex-1 flex gap-2">
@@ -422,7 +422,7 @@ function App() {
                 <p className="text-xl opacity-80">{weather.weather[0].description}</p>
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-8 w-full">
                 {[
                   {
                     icon: <Sun className="w-6 h-6" />,
@@ -450,7 +450,7 @@ function App() {
                     initial={{ scale: 0, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ delay: index * 0.1 }}
-                    className="flex items-center justify-center gap-2 bg-white/10 rounded-xl p-4"
+                    className="flex items-center justify-center gap-2 bg-white/10 rounded-xl p-4 w-full h-full"
                   >
                     {item.icon}
                     <div>
@@ -468,7 +468,7 @@ function App() {
                   transition={{ delay: 0.3 }}
                 >
                   <h3 className="text-xl font-medium mb-4">5-Day Forecast</h3>
-                  <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 w-full">
                     {forecast.list
                       .filter((item, index) => index % 8 === 0)
                       .slice(0, 5)
